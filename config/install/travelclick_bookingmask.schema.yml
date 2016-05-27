@@ -1,0 +1,16 @@
+travelclick_bookingmask.ihotelier:
+  type: config_object
+  label: 'TravelClick iHotelier Endpoint URL'
+  mapping:
+    hotelid:
+      type: number
+      label: 'Hotel ID'
+    endpointurl:
+      type: url
+      label: 'Endpoint URL'
+    datein:
+      type: date
+      label: 'Check-in Date'
+    dateout:
+      type: date
+      label: 'Check-out Date'
