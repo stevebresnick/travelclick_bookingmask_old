@@ -41,6 +41,7 @@ class ConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+
     $config = $this->config('travelclick_bookingmask.ihotelier');
     $form['hotelid'] = array(
       '#type' => 'number',

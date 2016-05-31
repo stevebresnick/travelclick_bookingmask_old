@@ -1,13 +1,3 @@
-
-# In order to to create pages it is necessary to define routes for them.
-# A route maps a URL path to a controller. It defines with what function
-# or method will be called when a URL is accessed.
-# If the user accesses http://drupal8.dev/travelclick/bookingmask/buildurl, the routing
-# system will look for a route with that path. In this case it will find a
-# match, and execute the _controller callback. In this case the callback is
-# defined as a classname
-# ("\Drupal\travelclick_bookingmask\Controller\EndpointController")
-# and a method ("buildUrl").
 travelclick_bookingmask.endpoint_controller_buildUrl:
   path: 'travelclick/bookingmask/buildurl'
   defaults:
@@ -27,21 +17,5 @@ travelclick_bookingmask.bookingform:
   defaults:
     _form: '\Drupal\travelclick_bookingmask\Form\BookingFOrm'
     _title: 'TravelClick Booking Mask Form'
-  requirements:
-    _permission: 'access content'
-# In order to to create pages it is necessary to define routes for them.
-# A route maps a URL path to a controller. It defines with what function
-# or method will be called when a URL is accessed.
-# If the user accesses http://drupal8.dev/travelclick/redirect/{endpoint}/{hotelid}/{datein}/{dateout}, the routing
-# system will look for a route with that path. In this case it will find a
-# match, and execute the _controller callback. In this case the callback is
-# defined as a classname
-# ("\Drupal\travelclick_bookingmask\Controller\RedirectController")
-# and a method ("redirect").
-travelclick_bookingmask.redirect_controller_redirect:
-  path: 'travelclick/redirect/{endpoint}/{hotelid}/{datein}/{dateout}'
-  defaults:
-    _controller: '\Drupal\travelclick_bookingmask\Controller\EndpointController::redirecturl'
-    _title: 'redirect'
   requirements:
     _permission: 'access content'
