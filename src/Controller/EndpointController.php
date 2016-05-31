@@ -8,9 +8,7 @@
 namespace Drupal\travelclick_bookingmask\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\travelclick_bookingmask\Form;
-use Drupal\Core\Url;
-use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\travelclick_bookingmask\Form\ConfigForm;
 
 /**
  * Class EndpointController.
@@ -33,20 +31,11 @@ class EndpointController extends ControllerBase {
     $checkin = date('m/d/Y', strtotime($datein));
     $checkout = date('m/d/Y', strtotime($dateout));
 
-    $url = $endpointurl . '&hotelid=' . $hotelid . '&datein=' . $checkin . '&dateout=' . $checkout;
+    $hotel = $hotelid;
+    $endpoint = $endpointurl;
 
-    //Stringify the result to pass as URL for redirect upon form submission
-    return $url;
+    return $endpoint . '&hotelid=' . $hotel . '&datein=' .$checkin . '&dateout=' .$checkout;
 
   }
 
-  public function ihotelierRedirect($endpointurl, $hotelid, $datein, $dateout) {
-
-    //Redirect to URL upon form submission
-
-    $url = $this->buildUrl($endpointurl, $hotelid, $datein, $dateout);
-    $uri = Url::toString($url);
-
-    return new RedirectResponse(Url::fromUri($uri));
-  }
 }

@@ -10,6 +10,8 @@ namespace Drupal\travelclick_bookingmask\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\travelclick_bookingmask\Controller\EndpointController;
+use Drupal\Core\Url;
+use Drupal\Core\Routing\TrustedRedirectResponse;
 
 /**
  * Class BookingForm.
@@ -75,6 +77,8 @@ class BookingForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
+
+
     $values = $form_state->getValues();
     $config = \Drupal::config('travelclick_bookingmask.ihotelier');
 
@@ -87,9 +91,15 @@ class BookingForm extends FormBase {
     $endpointcontroller = new EndpointController();
 
     //Build the url
-    //$url = $endpointcontroller->buildUrl($endpointurl, $hotelid, $datein, $dateout);
+    $url = $endpointcontroller->buildUrl($endpointurl, $hotelid, $datein, $dateout);
 
-    $endpointcontroller->ihotelierRedirect();
+    //$trusted = new TrustedRedirectResponse($url);
+
+    //$trusted->setTargetUrl($url);
+
+    //$form_state->setRedirectUrl(Url::fromUri($url));
+
+    drupal_set_message($url);
 
   }
 
